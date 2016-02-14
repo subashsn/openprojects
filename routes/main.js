@@ -67,7 +67,7 @@ module.exports=function(passport){
     
     router.get('/admin/viewcodes',ensureAuthenticated,isAdmin,accessHandler.viewcodes)
     
-    router.get('/profile',ensureAuthenticated,isAdmin,ensureAuthenticated,profileHandler.loadstats)
+    router.get('/profile',ensureAuthenticated,profileHandler.loadstats)
 
     router.get('/dashboard',ensureAuthenticated,dashHandler)
     
