@@ -15,7 +15,7 @@ function ensureAuthenticated(req, res, next) {
 
 function isAdmin (req,res,next) {
     if(req.user.astatus.admin==true){
-        next(req,res)
+        next()
     }
     else{
         res.status(401).end('Unauthorized')
@@ -59,15 +59,15 @@ module.exports=function(passport){
     
     router.get('/admin/ideas',ensureAuthenticated,isAdmin,adminHandler.ideas)
     
-    router.get('/admin',function(req,res){
+    router.get('/admin',ensureAuthenticated,isAdmin,function(req,res){
         res.render('admin')
     })
     
-    router.get('/admin/accessgen',accessHandler.addcodes)
+    router.get('/admin/accessgen',ensureAuthenticated,isAdmin,accessHandler.addcodes)
     
-    router.get('/admin/viewcodes',accessHandler.viewcodes)
+    router.get('/admin/viewcodes',ensureAuthenticated,isAdmin,accessHandler.viewcodes)
     
-    router.get('/profile',ensureAuthenticated,profileHandler.loadstats)
+    router.get('/profile',ensureAuthenticated,isAdmin,ensureAuthenticated,profileHandler.loadstats)
 
     router.get('/dashboard',ensureAuthenticated,dashHandler)
     
@@ -112,7 +112,7 @@ module.exports=function(passport){
     
     router.post('/updateskills',ensureAuthenticated,profileHandler.updateskills)
     
-    router.post('/admin/ideacontrol'/*,ensureAuthenticated,isAdmin*/,adminHandler.ideacontrol)
+    router.post('/admin/ideacontrol',ensureAuthenticated,isAdmin,adminHandler.ideacontrol)
     
     router.get('/validuser',profileHandler.validuser)
     
