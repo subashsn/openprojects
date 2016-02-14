@@ -109,7 +109,7 @@ passport.use('local-signup', new LocalStrategy(
                                 }  
                                 
                                 var messageHtml = ejs.render(str, content);
-                                mailHandler.sendMail(req.body.email,"Verify your Email | Open Projects",messageHtml)
+                                mailHandler.sendMail(req.body.email,"Verify your Email | OpenProjects",messageHtml)
                                 
                             }
                         })

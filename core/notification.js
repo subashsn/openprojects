@@ -112,7 +112,7 @@ module.exports.ideastatusupdate = function(idea){
                     link: siteurl+'dashboard'
                 }  
                 var messageHtml = ejs.render(str, content);
-                mailHandler.sendMail(users[i].email,idea.title +" | Open Projects",messageHtml)
+                mailHandler.sendMail(users[i].email,idea.title +" | OpenProjects",messageHtml)
             }                    
         }
     })
