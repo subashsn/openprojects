@@ -59,13 +59,13 @@ module.exports=function(passport){
     
     router.get('/admin/ideas',ensureAuthenticated,isAdmin,adminHandler.ideas)
     
-    router.get('/admin',ensureAuthenticated,isAdmin,function(req,res){
+    router.get('/admin',/*ensureAuthenticated,isAdmin,*/function(req,res){
         res.render('admin')
     })
     
-    router.get('/admin/accessgen',ensureAuthenticated,isAdmin,accessHandler.addcodes)
+    router.get('/admin/accessgen',/*ensureAuthenticated,isAdmin,*/accessHandler.addcodes)
     
-    router.get('/admin/viewcodes',ensureAuthenticated,isAdmin,accessHandler.viewcodes)
+    router.get('/admin/viewcodes',/*ensureAuthenticated,isAdmin,*/accessHandler.viewcodes)
     
     router.get('/profile',ensureAuthenticated,isAdmin,ensureAuthenticated,profileHandler.loadstats)
 
