@@ -57,11 +57,7 @@ module.exports=function(passport){
         res.redirect('/')
     })
     
-    router.get('/admin/ideas',ensureAuthenticated,isAdmin,adminHandler.ideas)
-    
-    router.get('/admin',ensureAuthenticated,isAdmin,function(req,res){
-        res.render('admin')
-    })
+    router.get('/admin',ensureAuthenticated,isAdmin,adminHandler.dashboard)
     
     router.get('/admin/accessgen',ensureAuthenticated,isAdmin,accessHandler.addcodes)
     
@@ -113,6 +109,8 @@ module.exports=function(passport){
     router.post('/updateskills',ensureAuthenticated,profileHandler.updateskills)
     
     router.post('/admin/ideacontrol',ensureAuthenticated,isAdmin,adminHandler.ideacontrol)
+    
+    router.get('/adminideaview',ensureAuthenticated,isAdmin,adminHandler.ideaview)   
     
     router.get('/validuser',profileHandler.validuser)
     
